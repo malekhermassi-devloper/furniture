@@ -195,6 +195,7 @@ header .header-content .login ul li:last-child i::after{/*hethy bch naamel byha 
 /* slide section */
 section.slider img{
     width: 100%;
+    margin-top: 60px;
 }
 
 /* category */
