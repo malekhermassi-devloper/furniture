@@ -1,0 +1,627 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* bch l padding nd l border may2athrouch 3la l height o el width*/
+}
+body{
+    height: 4000px;
+    font-family: 'PT Sans', sans-serif;
+}
+:root{/*3malna fyha l color elly bch yet3awdou barcha marrat bch manb9ach kol mara n3awed nekteb'hom*/
+    --maincolor: #7b5244;
+    --subcolor : #333;
+}
+.container{
+    width: 80%;
+    margin: auto;
+}
+.list-unstyled{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+/*the section header*/
+.section-padding{
+    padding: 40px 0;
+}
+.section-header{
+    text-align: center;
+    margin-bottom: 25px;
+    
+}
+.section-title{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.section-header .line{
+    display: block;
+    width: 90px;
+    height: 2px;
+    margin: auto;
+    background-color: var(--maincolor);
+    transition: width 0.5s;
+}
+.section-header:hover .line{
+    width: 120px;
+}
+/*the bullet*/
+.bullet{
+    list-style: none;
+    text-align: center;
+}
+.bullet li{
+    width: 10px;
+    height: 10px;
+    background-color: var(--subcolor);
+    display: inline-block;
+    margin: 10px 5px ; /*bsh nbaad'hom aale baadh'hom*/
+    border-radius: 50%; 
+    transform: scale(1 , 1);
+    transition: transform 0.5s;
+}
+.bullet li:first-child{
+    background-color: var(--maincolor);
+}
+.bullet li:hover{
+    background-color: var(--maincolor);
+    cursor: pointer;
+    transform: scale(1.3 , 1.3);
+}
+/* header */
+header{
+    padding: 30px 0;
+    background-color: #fff;
+    position: fixed;
+    width:100vw;
+    z-index: 1;
+}
+header .header-content{
+    display: flex;
+    justify-content: space-between; /*taamally space byn l elements(logo , nav , login)*/
+    align-items: center; /* bch l elements lkol yet7attou f wost el page padhabt*/
+}
+header .header-content img{
+    flex:1 ; /* bch na3mlou l flex grow o net7akmou f size mtee kol wahda fyhom*/
+    max-width: 170px; /* bch l width mte3ou matfoutech el 150*/
+}
+header .header-content nav{
+    flex:3 ; /* bch na3mlou l flex grow o net7akmou f size mtee kol wahda fyhom (hethy e triple mtee kol wahda mn lokhryn)*/
+    text-align: center;/*bch e text mtee e nav iji fl middle mtee l part mteou bedhabt*/
+}
+header .header-content .login{ 
+    flex:1; 
+    text-align: right;/* bsh e loginpart tji 3lee e right */
+}
+.header-content ul li {
+    display: inline-block; /* bch l "li" lkol yjiw fard ligne*/
+}
+.header-content ul li ,
+.header-content ul li a {
+    color: var(--subcolor);
+}
+.header-content{
+    display:flex;
+    justify-content: space-between;
+}
+header .header-content nav ul li .link-item{
+    padding: 10px 21px; /* bch tkoun clickable f zone akber*/
+    display: block; 
+    font-weight: bold;
+    position: relative;
+}
+header .header-content nav ul li .link-item:before , header .header-content nav ul li .link-item:after {/*hethy bch naamel byha e lines l left nd right mtee el hover*/
+    content: "";
+    position: absolute;
+    border-color: var(--maincolor);
+    border-style: solid;
+    top: 0;
+    left: 0;
+    transition: transform 0.2s;
+}
+header .header-content nav ul li .link-item:before{/*hethy bch naamel byha e lines  left nd right mtee el hover*/
+    border-width: 0 2px;
+    width: 98%;/* bch e lines mtee el hover kif yodh'hrou ykounou les9yn fy baadh'hom*/
+    height: 100%;
+    transform: scale3d(1 , 0, 1) /*bch l el khtoul tekhtafy (aamalna el y 0 bch kif tekhtafy tekhtafy mn blaset'ha */
+}
+header .header-content nav ul li .link-item:hover:before{/*kif naamel hover 3la e "link-item" el before howa elly yet2ather*/
+    transform: scale3d(1 ,1, 1) /*bch l khtout todhher kif naamel hover */
+}
+header .header-content nav ul li .link-item:after{/*hethy bch naamel byha e lines  top nd bottom mtee el hover*/
+    border-width: 2px 0;
+    height: 91%;/* bch e lines mtee el hover kif yodh'hrou ykounou les9yn fy baadh'hom*/
+    width: 100%;
+    transition-delay: 0.3s;/*yestanna .3s baad mee todh'her f left o right o baas tofh'her m top nd bottom*/
+    transform: scale3d(0 , 1, 1); /*bch l el khtoul tekhtafy (aamalna el y 0 bch kif tekhtafy tekhtafy mn blaset'ha */
+    transform-origin: left;/*bch fy 3oudh mee kenou yebdew yodh'hrou mn el wost e line yebdew yedh'hrou m left*/
+}
+header .header-content nav ul li .link-item:hover:after{/*kif naamel hover 3la e "link-item" el after howa elly yet2ather*/
+    transform: scale3d(1 ,1, 1) /*bch l khtout todhher kif naamel hover */
+}
+
+header .header-content .login ul li {
+    padding: 10px  ; /* bch tkoun clickable f zone akber*/
+    font-weight: bold;
+}
+header .header-content .login ul li:last-child i{/*maaneha hetly ekher child lel "li" o jybly menha el "i" */
+    position: relative;
+    margin-right: 12px;
+}
+header .header-content .login ul li:last-child i::after{/*hethy bch naamel byha el part ely baad e chariot elly fyha 9addech mn item chryt (lahne bch naamlouha 0 item)*/
+    position: absolute;/*bch tet7arrek % lel "i(icon)"*/
+    content: "0";
+    background-color: var(--maincolor);
+    color: #fff;
+    padding: 3px;
+    bottom: 4;
+    right: -8px;
+    font-size:13px;
+    border-radius: 50%;
+}
+/* dropdown */
+.dropdown{
+    position: relative;
+}
+.dropdown-menu{
+    position: absolute;
+    width: 400px;
+    background-color: #fff;
+    border: 2px solid var(--maincolor);
+    padding: 20px;
+    margin-top: 36px;
+    transform: scale(0);/*bch e dropdown tekhtafy ml page*/
+    visibility: hidden;/*awel mana3mel refresh tkoun dhahra e dropdown o eny man7eb'hech tadh'harly --> so naamel visibility:hidden bch maadech tbén*/
+    opacity: 0;/*cuz kif naamel transition aalee l visibility e dropdown bch twally tben kif na3mel refrech 9bal mee naamel hover so naamalha bch maadech tbén*/
+    transition: transform 0.5s , visibility 0.5s;/*bch e dropdown todh'her b chway*/
+}
+.dropdown:hover .dropdown-menu{
+    transform: scale(1);
+    visibility: visible;/*bch tarjaa tben fl hover*/
+    opacity: 1;/*bch tarjaa tben kif naamle hover*/
+}
+.dropdown-menu ul{
+    display: table-cell;/*tkhallyly chakel l ul elly f wost e dropdown-meny ka2anhom table*/
+    text-align: left;
+}
+.dropdown-menu ul li{
+    line-height: 1.7;
+}
+.dropdown-menu ul li:first-child a{
+    display: block;
+    border-bottom: 1px dotted var(--maincolor);
+    margin-bottom: 10px;
+}
+/* slide section */
+section.slider img{
+    width: 100%;
+}
+
+/* category */
+.category-items{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);/*bch l 4 items mte3y yet7attou fard star o ykoun 3and'hom fard width*/ 
+    grid-gap: 20px; 
+}
+.category-item{
+    position: relative;
+    cursor: pointer;
+}
+.category-item-img{
+    width: 100%;
+    margin-bottom: 25px;
+    transform: scale(1,1);
+    transition: transform 0.5s;
+}
+.category-item:hover .category-item-img{
+    transform: scale(1.05,1.05);
+}
+.category-item-subtitle{
+    color: gray;
+    font-weight: normal;
+}
+.category-item-title{
+    color: var(--subcolor);
+}
+.category-item .icon{
+    width: 40px;
+    height: 40px;
+    background-color: var(--maincolor);
+    color: #fff;
+    text-align: center;
+    display: block;
+    line-height: 30px; /*9ad el height bch yetwasten b touul*/
+    position: absolute; /*ml position lel bottom bch n7ot el icon 3lee e right side*/
+    right: 0;
+    bottom: 0; 
+    visibility: hidden;/*hya o el opacity bch el icon yekhtafy ml page*/
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.category-item:hover .icon{
+    visibility: visible;
+    opacity: 1;
+}
+/* discount */
+.discount{
+    margin: 30px 0 ;
+    display: flex;
+}
+.discount-desc{
+    flex: 2;
+    background: #f7f3ef;
+    padding: 20px;
+    position: relative;
+}
+.discount-desc .top{
+    position:relative;
+    padding-left: 60px;/*bch yebaadou l items y ykhalyw blassa bch ennajmou nhottou fyha el icon*/
+    margin-bottom: 20px;
+}
+.discount-desc .top .icon{
+    position: absolute;/*bch nrakkah el icon fy blasset'ha f left side*/
+    left: 0px;
+    top: 0px;
+    font-size: 45px;
+    color: var(--maincolor);
+}
+.discount-title{
+    color: var(--subcolor);
+}
+.discount-subtitle{
+    color: grey;
+}
+.discount-desc .top + p {/* maaneha jybly el paragraph elly baad e top*/
+    line-height: 1.7;
+    color: grey;
+}
+.discount-desc .bolletes{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+.discount-desc .bolletes span{
+    display: inline-block; /*bch e three spans yjy fad line*/
+    width: 50px;
+    height: 2px;
+   background-color: var(--maincolor);
+    margin-left: 10px;
+}
+.discount-item{
+    flex: 1;
+    height: 300px;
+    position: relative;
+}
+.discount-item-info{
+    position: relative;
+}
+.info-disc{
+    position: absolute;/*bch leklem nba3dou chway 3al 7affa*/
+    top: 10px;
+    left: 15px;
+}
+.discount-item-info h3{
+    font-weight: normal;
+    color: var(--maincolor);
+    text-transform: capitalize;
+
+}
+.discount-item-info h2{
+    font-size: 20px;
+    text-transform: capitalize;
+}
+.discount-item-info-img{
+    width: 100%;
+    height: 300px;
+    position: absolute;
+
+}
+.info-disc{
+    position: absolute;
+}
+.discount-item:nth-child(2){/*ma3neha hachty b child e theny elly esmou discount-item */
+    margin: 0 20px;
+    background-size: cover;
+}
+.discount-item-info-img {
+    transform: scale(1 , 1);
+    transition: transform 0.4s;
+}
+.discount-item-info-img:hover{
+    transform: scale(1.1 , 1.1);
+}
+/* sprites */
+.sprites{
+    display: flex;
+    margin-bottom:50px ;
+}
+.sprite-item{
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid var(--maincolor);
+}
+.sprite-item:last-child{/*ekher child esmou "sprite-item"*/
+    border: 0;
+}
+.sprite-icon{
+    background-image:url(../images/service-icon.png) ;
+    height: 55px;/*el background im mee todh'hor kn kif naatyha height*/
+    background-repeat: no-repeat;/*cuz etsawer kharjetly metkarra ---> bch nkhalyha matetkarrarch*/
+}
+.sprite-icon-1{
+    background-position: center 5px; /*maaneha l icon 1 bch nharrak'ha o nhot'ha f center 3al "x" o nharrak'ha 5px 3al "y"*/
+    transition: all 0.5s;
+}
+.sprite-item:hover .sprite-icon-1{
+    background-position: center -90px; /*bch kyf naamel hover el img tet7arrek o temchy lel img elly baad'ha(ellyhya kifha ama e loun yetbaddel*/
+}
+.sprite-icon-2{
+    background-position: center -180px; /*el icon e thenya dhahretly fl -180px ya3ny no9'3ed njarreb fl les valeur lin todh'horly el icon elly hajty byha*/
+    transition: all 0.5s;
+
+}
+.sprite-item:hover .sprite-icon-2{
+    background-position: center -273px;
+}
+.sprite-icon-3{
+    background-position: center -366px; 
+    transition: all 0.5s;
+}
+.sprite-item:hover .sprite-icon-3{
+    background-position: center -455px;
+}
+.sprite-icon-4{
+    background-position: center -549px; 
+    transition: all 0.5s;
+}
+.sprite-item:hover .sprite-icon-4{
+    background-position: center -639px;
+}
+.sprite-icon-5{
+    background-position: center -733px; 
+    transition: all 0.5s;
+}
+.sprite-item:hover .sprite-icon-5{
+    background-position: center -826px;
+}
+.sprite-info h3{
+    color: var(--subcolor);
+    font-size: 17px;
+}
+.sprite-info span{
+    color: gray;
+    font-size: 15px;
+}
+/* products */
+.products{
+    /* text-align: center; */
+}
+.list-products{
+    display: flex;
+    justify-content: center;/*bch el content elkol yet7at f center*/
+}
+.list-products li {
+    margin:10px 20px;
+}
+.list-products li a {
+    color: var(--subcolor);
+
+}
+.list-products li:hover a {
+    color: var(--maincolor);
+
+}
+.products-items{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 20px;
+    margin: 30px 0;
+}
+.product-img{
+    position: relative;
+}
+.product-overlay{
+    position: absolute;/*na3ty lel overlay "position: absolute;" nd "top:0; left:0;" o lel product-img elly howa el parent bch el img elly fl overlay tatlaa fou9 el img principal*/
+    top:0;
+    left:0;
+    transform: scaleX(0);/*bch el overlay lkolly maaybenech o bch kif naamel hover yben ka2anny 7allyt kteb(yaamel effect mezyen)*/
+    transition: transform 0.2s;
+}
+.product-overlay ul{
+    position: absolute;/*bch el icons yet7attou fou9 el img mtee el overlay */
+    top: 50%;/*"hero image" bch yjiw fl middle*/
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.product-overlay ul li{
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    background-color: var(--maincolor);
+    text-align: center;
+}
+.product-overlay ul li i{
+    color: #fff;
+    line-height: 40px;
+}
+.product-item:hover .product-overlay{
+    transform: scaleX(1);/*bch kif naamel hover tarjaa tben b effect mezyen*/
+}
+.product-info span{
+    display: block;
+    margin: 5px 0;
+    color: var(--subcolor);
+}
+.product-info i{
+    margin-top: 10px;
+    color: var(--subcolor);
+}
+.product-info i.active{
+    color: rgb(255, 221, 27);
+}
+/*post*/
+.post{
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: repeat(4,1fr);
+    margin-top: 80px;
+    
+}
+.post-img{
+    grid-column: 1/2;
+    position: relative;
+    background-image: url(../images/banner.PNG);
+    background-repeat: no-repeat;
+    background-position: center;
+   height: 400px;
+   width: 380px;
+}
+.play{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
+.post-info{
+   position: relative;
+   grid-column: 2/5;
+   padding: 30px;
+   background: #f7f3ef;
+}
+.post-info-top{
+    position:relative;
+    padding-left: 105px;/*bch yebaadou l items y ykhalyw blassa bch ennajmou nhottou fyha el icon*/
+    margin-bottom: 20px;
+    
+}
+.post-info-top-date{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.day{
+    font-weight: bold;
+    font-size: 25px;
+    color: var(--maincolor);
+}
+.month{
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--maincolor);
+}
+.post-info-title{
+    text-transform: capitalize;
+    color: var(--subcolor);
+}
+.post-info-title:hover{
+    color: var(--maincolor);
+}
+.post-info-paragraph{
+    margin-top: 50px;
+    line-height: 1.7;
+    font-size: 15px;
+    color: gray;
+}
+.post-info .bolletes{
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+} 
+.post-info .bolletes span{
+    display: inline-block; /*bch e three spans yjy fad line*/
+    width: 50px;
+    height: 2px;
+    background-color:var(--subcolor);
+    margin-left: 10px;
+}
+.post-info .bolletes span.active{
+    background-color: var(--maincolor);
+}
+.post-info .bolletes span:hover{
+    background-color: var(--maincolor);
+}
+.partnership{
+    margin-top: 70px ;
+    margin-left: 40px;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    
+}
+.partner{
+    margin-right: 25px;
+}
+.partnerlast{
+    margin-right: 0;
+}
+/* footer */
+footer{
+    background-color: black;
+}
+.footer-content{
+    margin-top: 50px;
+    display: flex;
+}
+.logo{
+    margin-right: 40px;
+    flex: 2;
+}
+.logo-desc{
+    margin: 40px 0;
+    text-align:justify ;
+    color: #888888;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: .7px;
+    line-height: 26px;
+}
+.ios{
+    margin-right: 8px;
+}
+.info{
+    flex: 1;
+    margin-right: 40px;
+}
+.info-title , .account-title , .subscribe-list{
+    color: #fff;
+    letter-spacing: 1.5;
+}
+.info .list-information , .account .list-account{
+    margin: 20px 0;
+}
+.info .list-information li , .account .list-account li{
+    line-height: 2;
+}
+.info .list-information a , .account .list-account a{
+    color: #888888;
+    font-weight: normal;
+    font-size: 14.8px;
+}
+.account{
+    flex: 1;
+}
+.subscribe{
+    flex: 1.5;
+    position: relative;
+}
+.mail{
+    position: absolute;
+    right:0;
+    margin-top: 40px;
+    width: 100%;
+    border: none;
+    border-bottom: solid 1px #888888;
+    padding: 22px 45px 10px 10px;
+    background:none;
+    color: #f6f6f6;    
+}
+.media{
+    display: flex;
+    position: absolute;
+    bottom: 100px;
+}
+.media i{
+    color: #888888;
+    font-size: 20px;
+    margin-right : 25px ;
+}
